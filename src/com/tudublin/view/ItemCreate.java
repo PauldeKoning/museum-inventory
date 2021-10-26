@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class ItemCreate {
-    private Item item;
+    private final Item item;
     private final Scanner scan;
 
     public ItemCreate(InventoryController controller) {
@@ -55,6 +55,6 @@ public class ItemCreate {
     private void getCountry() {
         System.out.println("What country is this item from?");
         this.item.setCountry(this.scan.nextLine());
-    }}
     }
+
 }
