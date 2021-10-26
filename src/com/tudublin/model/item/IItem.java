@@ -5,10 +5,8 @@ import com.tudublin.model.inspection.IInspection;
 import java.util.Date;
 
 public interface IItem {
+    Date getOriginDate();
     void setOriginDate(Date originDate);
-
-    String getRegion();
-    void setRegion(String region);
 
     String getCountry();
     void setCountry(String country);

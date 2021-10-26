@@ -8,11 +8,10 @@ import java.util.Date;
 public abstract class Item implements IItem {
 
     private Date originDate;
-    private String region;
     private String country;
     private String name;
     private String description;
-    private final IInspection inspection;
+    private IInspection inspection;
 
     public Item(IInspection inspection) {
         this.inspection = inspection;
@@ -24,14 +23,6 @@ public abstract class Item implements IItem {
 
     public void setOriginDate(Date originDate) {
         this.originDate = originDate;
-    }
-
-    public String getRegion() {
-        return this.region;
-    }
-
-    public void setRegion(String region) {
-        this.region = region;
     }
 
     public String getCountry() {
@@ -52,7 +43,9 @@ public abstract class Item implements IItem {
 
     public String getName() { return this.name; }
 
-    public void setName(String name) { this.name = name; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public IInspection getInspection() {
         return this.inspection;

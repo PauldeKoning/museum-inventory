@@ -1,6 +1,5 @@
 package com.tudublin.model.inspection.step.impl;
 
-import com.tudublin.model.inspection.step.IInspectionStep;
 import com.tudublin.model.inspection.step.InspectionStep;
 
 public class NoteStep extends InspectionStep {

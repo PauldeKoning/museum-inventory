@@ -10,7 +10,7 @@ import java.util.List;
 public class GunInspection extends Inspection {
 
     public GunInspection() {
-        super(3);
+        super(2);
 
         this.steps = new ArrayList<>(List.of(
                 new CheckmarkStep("Cleaned Check", "Has the gun been cleaned?"),
