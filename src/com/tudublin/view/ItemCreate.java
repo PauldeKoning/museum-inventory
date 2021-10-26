@@ -2,8 +2,6 @@ package com.tudublin.view;
 
 import com.tudublin.controller.InventoryController;
 import com.tudublin.model.Item;
-import com.tudublin.model.item.impl.Gun;
-import com.tudublin.model.item.impl.Tank;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -17,7 +15,7 @@ public class ItemCreate {
     public ItemCreate(InventoryController controller) {
         this.scan = new Scanner(System.in);
 
-        getType();
+        item = new Item();
         getName();
         getDescription();
         getCountry();
@@ -57,20 +55,6 @@ public class ItemCreate {
     private void getCountry() {
         System.out.println("What country is this item from?");
         this.item.setCountry(this.scan.nextLine());
-    }
-
-    private void getType() {
-        System.out.println("What do you want to create? [gun/tank]");
-        var input = this.scan.nextLine();
-
-        switch (input.toLowerCase()) {
-            case "gun" -> {
-                this.item = new Gun();
-            }
-            case "tank" -> {
-                this.item = new Tank();
-            }
-            default -> getType();
-        }
+    }}
     }
 }
