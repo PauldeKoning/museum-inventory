@@ -2,46 +2,55 @@ package com.tudublin.controller;
 
 import com.tudublin.model.Inventory;
 import com.tudublin.model.Item;
-import com.tudublin.view.ItemCreate;
+import com.tudublin.view.ItemInput;
 import com.tudublin.view.ItemList;
 import com.tudublin.view.ItemSearch;
 import com.tudublin.view.Menu;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class InventoryController {
-    private final ItemList itemList;
+
     private final Inventory inventory;
+    private final ItemList itemList;
+    private final ItemInput itemInput;
+    private final ItemSearch itemSearch;
+
 
     public InventoryController() {
         this.inventory = new Inventory();
-        this.itemList = new ItemList(this);
 
-        Menu menu = new Menu(this);
+        final var menu = new Menu(this);
+        this.itemList = new ItemList(this.inventory.getItems());
+        this.itemInput = new ItemInput();
+        this.itemSearch = new ItemSearch(this);
+
+        var scan = new Scanner(System.in);
 
         while (true) {
-            menu.showMenu();
+            menu.show();
+
+            System.out.println("Do you want to go back to the menu? [Y/n]");
+            var input = scan.nextLine();
+
+            if (input.equalsIgnoreCase("n")) break;
         }
     }
 
-    public List<Item> getItems() {
-        return this.inventory.getItems();
-    }
-
-    public void addItem(Item item) {
-        this.inventory.addItem(item);
-    }
-
     public void listItems() {
-        this.itemList.listItems();
+        this.itemList.show();
     }
 
     public void createItem() {
-        new ItemCreate(this);
+        var item = new Item();
+        this.itemInput.show(item);
+
+        this.inventory.addItem(item);
     }
 
     public void searchItems() {
-        new ItemSearch(this);
+        this.itemSearch.show();
     }
 
     public List<Item> linearSearch(String name) {
@@ -53,10 +62,15 @@ public class InventoryController {
     }
 
     public void editItem(Item item) {
-        // TODO
+        this.itemInput.show(item);
+        this.inventory.sort();
     }
 
     public void deleteItem(Item item) {
         this.inventory.deleteItem(item);
+    }
+
+    public void sort() {
+        this.inventory.sort();
     }
 }

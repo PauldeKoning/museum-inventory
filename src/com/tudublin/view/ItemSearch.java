@@ -14,6 +14,9 @@ public class ItemSearch {
     public ItemSearch(InventoryController controller) {
         this.scan = new Scanner(System.in);
         this.controller = controller;
+    }
+
+    public void show() {
         getSearchAlgorithm();
     }
 
@@ -44,7 +47,7 @@ public class ItemSearch {
             }
 
             System.out.println("Please select one item.");
-            index = this.scan.nextInt() - 1;
+            index = Integer.parseInt(this.scan.nextLine()) - 1;
 
             System.out.println("Selected:");
         }

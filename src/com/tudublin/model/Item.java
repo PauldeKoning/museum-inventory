@@ -5,9 +5,18 @@ import java.util.Date;
 public class Item {
 
     private Date originDate;
+    private Float value;
     private String country;
     private String name;
     private String description;
+
+    public Float getValue() {
+        return this.value;
+    }
+
+    public void setValue(Float value) {
+        this.value = value;
+    }
 
     public Date getOriginDate() {
         return this.originDate;
@@ -33,7 +42,9 @@ public class Item {
         this.description = description;
     }
 
-    public String getName() { return this.name; }
+    public String getName() {
+        return this.name;
+    }
 
     public void setName(String name) {
         this.name = name;

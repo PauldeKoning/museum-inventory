@@ -56,7 +56,7 @@ public class Inventory {
         this.sort();
     }
 
-    private void sort() { // Bubble sort
+    public void sort() { // Bubble sort
         int sorted = 0;
 
         while (sorted < this.items.size() - 1) {
@@ -90,7 +90,7 @@ public class Inventory {
 
         var low = 0;
         var high = this.items.size();
-        var lastGuess = (int)Math.floor((low + high) / 2.0);
+        var lastGuess = 0;
 
         while (true) {
             var guess = (int)Math.floor((low + high) / 2.0);
@@ -114,6 +114,8 @@ public class Inventory {
             } else {
                 low = guess;
             }
+
+            lastGuess = guess;
         }
 
         return found;
