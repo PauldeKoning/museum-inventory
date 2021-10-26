@@ -1,47 +1,43 @@
 package com.tudublin.model;
 
-import com.tudublin.model.item.Item;
-import com.tudublin.model.item.impl.Gun;
-import com.tudublin.model.item.impl.Tank;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Inventory {
-    private ArrayList<Item> items;
+    private final ArrayList<Item> items;
 
     public Inventory() {
         items = new ArrayList<>();
 
-        var gun1 = new Gun();
+        var gun1 = new Item();
         gun1.setName("Gun1");
         gun1.setDescription("Gun1");
         gun1.setCountry("GunCountry1");
         gun1.setOriginDate(new Date());
         items.add(gun1);
 
-        var gun2 = new Gun();
+        var gun2 = new Item();
         gun2.setName("Gun2");
         gun2.setDescription("Gun2");
         gun2.setCountry("GunCountry2");
         gun2.setOriginDate(new Date());
         items.add(gun2);
 
-        var gun3 = new Gun();
+        var gun3 = new Item();
         gun3.setName("Gun3");
         gun3.setDescription("Gun3");
         gun3.setCountry("GunCountry3");
         gun3.setOriginDate(new Date());
         items.add(gun3);
 
-        var tank1 = new Tank();
+        var tank1 = new Item();
         tank1.setName("Tank1");
         tank1.setDescription("Tank1");
         tank1.setCountry("TankCountry1");
         tank1.setOriginDate(new Date());
         items.add(tank1);
-        var tank2 = new Tank();
+        var tank2 = new Item();
         tank2.setName("Tank1");
         tank2.setDescription("Tank1");
         tank2.setCountry("TankCountry1");

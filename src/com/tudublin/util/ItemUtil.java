@@ -1,6 +1,6 @@
 package com.tudublin.util;
 
-import com.tudublin.model.item.Item;
+import com.tudublin.model.Item;
 
 public class ItemUtil {
 

@@ -1,21 +1,13 @@
-package com.tudublin.model.item;
-
-
-import com.tudublin.model.inspection.IInspection;
+package com.tudublin.model;
 
 import java.util.Date;
 
-public abstract class Item implements IItem {
+public class Item {
 
     private Date originDate;
     private String country;
     private String name;
     private String description;
-    private IInspection inspection;
-
-    public Item(IInspection inspection) {
-        this.inspection = inspection;
-    }
 
     public Date getOriginDate() {
         return this.originDate;
@@ -47,7 +39,4 @@ public abstract class Item implements IItem {
         this.name = name;
     }
 
-    public IInspection getInspection() {
-        return this.inspection;
-    }
 }

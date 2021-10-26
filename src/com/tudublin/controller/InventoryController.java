@@ -1,7 +1,7 @@
 package com.tudublin.controller;
 
 import com.tudublin.model.Inventory;
-import com.tudublin.model.item.Item;
+import com.tudublin.model.Item;
 import com.tudublin.view.ItemCreate;
 import com.tudublin.view.ItemList;
 import com.tudublin.view.ItemSearch;
@@ -10,17 +10,17 @@ import com.tudublin.view.Menu;
 import java.util.List;
 
 public class InventoryController {
-    private final Menu menu;
     private final ItemList itemList;
     private final Inventory inventory;
 
     public InventoryController() {
         this.inventory = new Inventory();
-        this.menu = new Menu(this);
         this.itemList = new ItemList(this);
 
+        Menu menu = new Menu(this);
+
         while (true) {
-            this.menu.showMenu();
+            menu.showMenu();
         }
     }
 
@@ -30,10 +30,6 @@ public class InventoryController {
 
     public void addItem(Item item) {
         this.inventory.addItem(item);
-    }
-
-    public void checkInput() {
-
     }
 
     public void listItems() {

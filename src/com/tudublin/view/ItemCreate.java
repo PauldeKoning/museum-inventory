@@ -1,7 +1,7 @@
 package com.tudublin.view;
 
 import com.tudublin.controller.InventoryController;
-import com.tudublin.model.item.Item;
+import com.tudublin.model.Item;
 import com.tudublin.model.item.impl.Gun;
 import com.tudublin.model.item.impl.Tank;
 
