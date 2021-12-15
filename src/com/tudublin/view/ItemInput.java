@@ -53,22 +53,27 @@ public class ItemInput {
     }
 
     private Float askInput(Float existing, String question) {
+        // Ask question and show option existing value
         System.out.println(question);
         if (existing != null)
             System.out.println("[" + existing + "]");
 
+        // Get user input
         var input = this.scan.nextLine();
 
-        // Parse the float, if
+        // Parse the float
         float parsedFloat;
         try {
             parsedFloat = Float.parseFloat(input);
         } catch (NumberFormatException ignored) {
+            // If float cannot be parsed, ask question again
             return this.askInput(existing, question);
         }
 
+        // If there is no existing value, return current input immediately
         if (existing == null) return parsedFloat;
 
+        // Else if users type an empty string, keep existing. Else return input.
         return input.equals("") ? existing : parsedFloat;
     }
 

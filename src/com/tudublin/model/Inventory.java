@@ -52,21 +52,30 @@ public class Inventory {
     }
 
     public void addItem(Item item) {
+        // Add item to item array
         this.items.add(item);
+
+        // Sort the array
         this.sort();
     }
 
     public void sort() { // Bubble sort
+        // Set sort counter
         int sorted = 0;
 
+        // While array is not sorted
         while (sorted < this.items.size() - 1) {
+            // Reset sorted counter
             sorted = 0;
             for (int i = 0; i < this.items.size() - 1; i++) {
+                // Check whether the current index should be higher than next index
                 if (this.items.get(i).getName().toLowerCase().compareTo(this.items.get(i + 1).getName().toLowerCase()) > 0) {
+                    // Switch them around
                     var temp = this.items.get(i);
                     this.items.set(i, this.items.get(i + 1));
                     this.items.set(i + 1, temp);
                 } else {
+                    // Else one value is sorted
                     sorted++;
                 }
             }
@@ -76,6 +85,7 @@ public class Inventory {
     public List<Item> linearSearch(String name) {
         var found = new ArrayList<Item>();
 
+        // Go through every element O(n)
         for (var item : this.items) {
             if (item.getName().equalsIgnoreCase(name)) {
                 found.add(item);
@@ -93,28 +103,37 @@ public class Inventory {
         var lastGuess = 0;
 
         while (true) {
+            // Create guess which is in the middle of low and high
             var guess = (int)Math.floor((low + high) / 2.0);
             var guessObj = this.items.get(guess);
 
+            // If there is no value found, break
             if (guess == lastGuess) break;
 
+            // If item is found
             if (guessObj.getName().toLowerCase().equals(name)) {
+                // Add item to found list
                 found.add(guessObj);
+                // Loop left, add other equal items
                 for (int i = guess + 1; i < this.items.size(); i++) {
                     if (this.items.get(i).getName().equalsIgnoreCase(name)) found.add(this.items.get(i));
                 }
+                // Loop right, add other equal items
                 for (int i = guess - 1; i >= 0; i--) {
                     if (this.items.get(i).getName().equalsIgnoreCase(name)) found.add(this.items.get(i));
                 }
+                // Break from loop
                 break;
             }
 
+            // If the guess is after search
             if (guessObj.getName().toLowerCase().compareTo(name) > 0) {
-                high = guess;
+                high = guess; // Set high to current guess
             } else {
-                low = guess;
+                low = guess; // Set low to current guess
             }
 
+            // Set lastguess
             lastGuess = guess;
         }
 
